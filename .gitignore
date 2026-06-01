@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment
+.env
+.env.*
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# Client
+client/dist/
+client/.vite/
+client/node_modules/
+
+# Server
+server/uploads/
+server/temp/
+
+# Database
+*.sqlite
+*.db
+dump/

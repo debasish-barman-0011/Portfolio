@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ff004f;
+  --secondary: #04aa6d;
+  --tertiary: #3f51b5;
+  --quaternary: #ffa500;
+  --header: #2f3030;
+  --footerText: #dfdfe0;
+  --bodyBg: #080808;
+  --commonBg: #262626;
+}
+
+body {
+  background-color: var(--bodyBg);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Loader overlay */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s;
+}
+.loader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 30px;
+}
+.loader-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 8px solid transparent;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+.loader-circle:nth-child(1) { border-top-color: var(--primary); border-right-color: var(--primary); }
+.loader-circle:nth-child(2) { border-bottom-color: var(--primary); border-left-color: var(--primary); animation-direction: reverse; animation-duration: 1.5s; }
+.loader-circle:nth-child(3) { width: 70%; height: 70%; top: 15%; left: 15%; border-top-color: rgba(255,0,79,0.7); border-right-color: rgba(255,0,79,0.7); animation-duration: 1s; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.loader-text { font-size: 1.2rem; margin-top: 20px; }
+.loader-progress { width: 200px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-top: 20px; overflow: hidden; }
+.loader-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), #ff6b9d); animation: progress 2s ease-out forwards; }
+@keyframes progress { 0% { width: 0%; } 100% { width: 100%; } }
+
+/* Scroll indicator */
+#scrollIndicator {
+  background: linear-gradient(to right, #04aa6d, #3f51b5, #ffa500, #ff004f);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  z-index: 1000;
+  transition: width 0.1s ease;
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1e1e1e; }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
