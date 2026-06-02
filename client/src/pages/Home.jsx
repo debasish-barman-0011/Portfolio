@@ -5,28 +5,48 @@ import ContactSection from '../components/ContactSection';
 import QuickNavCards from '../components/QuickNavCards';
 
 const Home = () => {
+  // useEffect(() => {
+  //   console.log('[Home] mounted');
+  //   new Typed('.autoType', {
+  //     strings: ['an Associate @TCS.', 'a Graduate @BWU.', 'Ex-DC @Schoolnet.'],
+  //     typeSpeed: 80, backSpeed: 100, loop: true
+  //   });
   useEffect(() => {
-    console.log('[Home] mounted');
-    new Typed('.autoType', {
-      strings: ['an Associate @TCS.', 'BCA Graduate @BWU.', 'Ex - DC @Schoolnet.'],
-      typeSpeed: 50, backSpeed: 50, loop: true
-    });
-    // Greeting based on time
+  console.log('[Home] mounted');
+
+  const typed = new Typed('.autoType', {
+    strings: [
+      'an Associate @TCS.',
+      'a Graduate @BWU.',
+      'Ex-DC @Schoolnet.'
+    ],
+    typeSpeed: 50,      
+    backSpeed: 30,      
+    backDelay: 1800,    
+    startDelay: 500,    
+    loop: true,
+    smartBackspace: true,
+    showCursor: true,
+    cursorChar: '|'
+  });
+
+  return () => typed.destroy();
+
     const hour = new Date().getHours();
-    const greet = hour < 12 ? 'Good Morning' : hour < 18 ? 'Good Afternoon' : 'Good Evening';
+    const greet = hour < 12 ? 'Good Morning' : hour < 16 ? 'Good Afternoon' : hour < 20 ? 'Good Evening' : 'Welcome Again';
     document.getElementById('greeting') && (document.getElementById('greeting').innerText = greet);
   }, []);
   return (
     <>
       <section className="flex flex-col md:flex-row items-center justify-between p-8 md:p-16">
         <div className="md:w-1/2"><img src="/assets/profile.jpg" alt="Debasish" className="rounded-2xl shadow-2xl" onError={(e)=>e.target.src='/assets/profile.jpg'} /></div>
-        <div className="md:w-1/2 text-center md:text-left">
+        <div className="md:w-1/2 text-center md:text-left md:pl-4">
           <p className="text-3xl bg-gradient-to-r from-[#ff5f6d] to-[#ffc371] bg-clip-text text-transparent">Hello,</p>
           <div id="greeting" className="text-3xl"></div>
           <span className="text-3xl bg-gradient-to-r from-[#36d1dc] to-[#5b86e5] bg-clip-text text-transparent">This is</span>
           <h3 className="text-5xl bg-gradient-to-r from-[#fdbb2d] to-[#22c1c3] bg-clip-text text-transparent">Debasish Barman.</h3>
           <div className="text-2xl mt-2">I am <span className="autoType"></span></div>
-          <a href="/download-resume" className="inline-block mt-6 bg-[#3f51b5] px-6 py-2 rounded-md">Download Resume</a>
+          <a href="/download-resume" className="inline-block mt-6 bg-[#04aa6d] px-6 py-2 rounded-md">Download Resume</a>
         </div>
       </section>
       <div id="about" className="p-8 md:p-16 bg-[#080808]">

@@ -1,34 +1,3 @@
-// import { useState } from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
-// import { useAuth } from '../context/AuthContext';
-
-// const Navbar = () => {
-//   const [menuOpen, setMenuOpen] = useState(false);
-//   const { token } = useAuth();
-//   const navigate = useNavigate();
-//   const handleAdminClick = () => {
-//     if (token) navigate('/admin/dashboard');
-//     else navigate('/admin/login');
-//   };
-//   return (
-//     <nav className="bg-[#2f3030] sticky top-0 z-50 flex justify-between items-center px-6 py-3 shadow-md">
-//       <Link to="/"><img src="/assets/logo.jpg" alt="logo" className="h-10" onError={(e)=>e.target.src='/assets/logo.jpg'} /></Link>
-//       <div className="md:hidden text-2xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>☰</div>
-//       <ul className={`fixed md:static top-0 right-0 md:right-auto bg-[#04aa6d] md:bg-transparent w-64 md:w-auto h-full md:h-auto pt-20 md:pt-0 transition-all duration-500 z-40 ${menuOpen ? 'right-0' : '-right-64'}`}>
-//         <li><Link to="/" className="block md:inline-block px-6 py-3 md:py-0 md:px-3 hover:text-[#ff004f]" onClick={() => setMenuOpen(false)}>Home</Link></li>
-//         <li><Link to="/blogs" className="block md:inline-block px-6 py-3 md:py-0 md:px-3 hover:text-[#ff004f]" onClick={() => setMenuOpen(false)}>Blogs</Link></li>
-//         <li><Link to="/community" className="block md:inline-block px-6 py-3 md:py-0 md:px-3 hover:text-[#ff004f]" onClick={() => setMenuOpen(false)}>Community</Link></li>
-//         <li><Link to="/education" className="block md:inline-block px-6 py-3 md:py-0 md:px-3 hover:text-[#ff004f]" onClick={() => setMenuOpen(false)}>Education</Link></li>
-//         <li><Link to="/certificates" className="block md:inline-block px-6 py-3 md:py-0 md:px-3 hover:text-[#ff004f]" onClick={() => setMenuOpen(false)}>Certificates</Link></li>
-//         <li><Link to="/achievements" className="block md:inline-block px-6 py-3 md:py-0 md:px-3 hover:text-[#ff004f]" onClick={() => setMenuOpen(false)}>Achievements</Link></li>
-//         <li><Link to="/contact" className="block md:inline-block px-6 py-3 md:py-0 md:px-3 hover:text-[#ff004f]" onClick={() => setMenuOpen(false)}>Contact</Link></li>
-//         <li><button onClick={() => { handleAdminClick(); setMenuOpen(false); }} className="block md:inline-block px-6 py-3 md:py-0 md:px-3 text-[#ff004f] font-semibold">Admin</button></li>
-//       </ul>
-//     </nav>
-//   );
-// };
-// export default Navbar;
-
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -39,7 +8,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Close menu on route change (mobile)
   useEffect(() => {
     setMenuOpen(false);
   }, [location]);
@@ -55,8 +23,8 @@ const Navbar = () => {
   return (
     <nav className="bg-[#2f3030] sticky top-0 z-50 flex justify-between items-center px-4 md:px-8 py-3 shadow-md">
       <Link to="/" className="flex items-center">
-        <img src="/assets/logo.jpg" alt="logo" className="h-8 md:h-10" onError={(e)=>e.target.src='/assets/Debasish Barman.png'} />
-        <span className="ml-2 text-white font-semibold hidden sm:inline">Debasish Barman</span>
+        <img src="/assets/logo.jpg" alt="logo" className="h-8 md:h-10" onError={(e)=>e.target.src='/assets/placeholder.jpg'} />
+        {/* <span className="ml-2 text-white font-semibold hidden sm:inline">Debasish Barman</span> */}
       </Link>
 
       {/* Desktop Menu */}
@@ -68,7 +36,7 @@ const Navbar = () => {
         <li><Link to="/certificates" className="hover:text-[#ff004f] transition">Certificates</Link></li>
         <li><Link to="/achievements" className="hover:text-[#ff004f] transition">Achievements</Link></li>
         <li><Link to="/contact" className="hover:text-[#ff004f] transition">Contact</Link></li>
-        <li><button onClick={handleAdminClick} className="text-[#ff004f] font-semibold hover:underline">Admin</button></li>
+        <li><button onClick={handleAdminClick} className="text-[#ff004f] font-semibold hover:underline">Login</button></li>
       </ul>
 
       {/* Mobile Hamburger */}
@@ -89,7 +57,7 @@ const Navbar = () => {
           <li><Link to="/certificates" onClick={closeMenu} className="text-white text-lg hover:text-[#ff004f]">Certificates</Link></li>
           <li><Link to="/achievements" onClick={closeMenu} className="text-white text-lg hover:text-[#ff004f]">Achievements</Link></li>
           <li><Link to="/contact" onClick={closeMenu} className="text-white text-lg hover:text-[#ff004f]">Contact</Link></li>
-          <li><button onClick={handleAdminClick} className="text-[#ff004f] font-bold text-lg">Admin</button></li>
+          <li><button onClick={handleAdminClick} className="text-[#ff004f] font-bold text-lg">Login</button></li>
         </ul>
       </div>
     </nav>

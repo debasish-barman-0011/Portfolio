@@ -14,3 +14,8 @@ exports.getLogs = async (req, res) => {
   const logs = await ResumeDownload.find().sort('-createdAt');
   res.json(logs);
 };
+
+exports.deleteLog = async (req, res) => {
+  await ResumeDownload.findByIdAndDelete(req.params.id);
+  res.json({ success: true });
+};

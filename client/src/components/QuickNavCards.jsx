@@ -4,7 +4,7 @@ const QuickNavCards = () => {
   const items = [
     { name: 'Education', path: '/education', icon: '🎓' },
     { name: 'Certificates', path: '/certificates', icon: '📜' },
-    { name: 'Achievements', path: '/achievements', icon: '🏆' },
+    { name: 'Highlights', path: '/achievements', icon: '🏆' },
     { name: 'Community', path: '/community', icon: '👥' }
   ];
   return (

@@ -3,7 +3,14 @@ import { useAuth } from '../context/AuthContext';
 
 const PrivateRoute = ({ children }) => {
   const { token } = useAuth();
-  console.log('[PrivateRoute] token exists:', !!token);
-  return token ? children : <Navigate to="/admin/login" />;
+  
+  if (!token) {
+    console.log('No token, redirecting to /admin/login');
+    return <Navigate to="/admin/login" replace />;
+  }
+  
+  console.log('Token found, rendering admin component');
+  return children;
 };
+
 export default PrivateRoute;

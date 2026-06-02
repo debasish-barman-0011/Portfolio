@@ -22,16 +22,19 @@ import AdminCertificates from './pages/admin/Certificates';
 import AdminBlogs from './pages/admin/Blogs';
 import AdminCommunityPosts from './pages/admin/CommunityPosts';
 import AdminLocker from './pages/admin/Locker';
+import AdminContactMessages from './pages/admin/ContactMessages';
+import AdminResumeDownloads from './pages/admin/ResumeDownloads';
 
 function App() {
-  console.log('[App] rendering');
+  console.log('App rendering - no redirects for public routes');
+  
   return (
     <BrowserRouter>
       <AuthProvider>
         <Loader />
         <ScrollToTop />
         <Routes>
-          {/* Public routes */}
+          {/* ALL PUBLIC ROUTES - no authentication required */}
           <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
           <Route path="/blogs" element={<><Navbar /><Blogs /><Footer /></>} />
           <Route path="/community" element={<><Navbar /><Community /><Footer /></>} />
@@ -41,7 +44,7 @@ function App() {
           <Route path="/contact" element={<><Navbar /><Contact /><Footer /></>} />
           <Route path="/download-resume" element={<><Navbar /><DownloadResume /><Footer /></>} />
           
-          {/* Admin routes */}
+          {/* ADMIN ROUTES - only these require login via PrivateRoute */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
           <Route path="/admin/projects" element={<PrivateRoute><AdminProjects /></PrivateRoute>} />
@@ -51,6 +54,8 @@ function App() {
           <Route path="/admin/blogs" element={<PrivateRoute><AdminBlogs /></PrivateRoute>} />
           <Route path="/admin/community-posts" element={<PrivateRoute><AdminCommunityPosts /></PrivateRoute>} />
           <Route path="/admin/locker" element={<PrivateRoute><AdminLocker /></PrivateRoute>} />
+          <Route path="/admin/contact-messages" element={<PrivateRoute><AdminContactMessages /></PrivateRoute>} />
+          <Route path="/admin/resume-downloads" element={<PrivateRoute><AdminResumeDownloads /></PrivateRoute>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

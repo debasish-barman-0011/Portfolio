@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';  // <-- inside Router context now
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import api from '../utils/api';
 
@@ -14,12 +14,10 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('adminToken'));
   const navigate = useNavigate();
-  console.log('[AuthContext] token present:', !!token);
 
   const login = (newToken) => {
     localStorage.setItem('adminToken', newToken);
     setToken(newToken);
-    console.log('[AuthContext] login successful');
   };
 
   const logout = async () => {
@@ -32,12 +30,11 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     navigate('/admin/login');
     Swal.fire('Logged out', 'Session ended', 'info');
-    console.log('[AuthContext] logout');
   };
 
-  // Auto-logout idle timer
   useEffect(() => {
     if (!token) return;
+    
     let idleTimer;
     const resetTimer = () => {
       if (idleTimer) clearTimeout(idleTimer);
@@ -49,12 +46,14 @@ export const AuthProvider = ({ children }) => {
           showConfirmButton: false,
           didDestroy: () => logout()
         });
-      }, 3 * 60 * 1000);
+      }, 5 * 60 * 1000);
     };
+    
     window.addEventListener('mousemove', resetTimer);
     window.addEventListener('click', resetTimer);
     window.addEventListener('keydown', resetTimer);
     resetTimer();
+    
     return () => {
       clearTimeout(idleTimer);
       window.removeEventListener('mousemove', resetTimer);

@@ -20,7 +20,7 @@ const Achievements = () => {
       <div className="space-y-8">
         {filtered.map(ach => (
           <div key={ach._id} className="flex flex-col md:flex-row gap-6 bg-[#262626] p-4 rounded-xl">
-            <img src={ach.bannerUrl} className="md:w-1/3 rounded object-cover h-48" onError={(e)=>e.target.src='/assets/placeholder.jpg'} />
+            <img src={ach.bannerUrl} className="md:w-1/3 rounded object-cover h-48" onError={(e)=>e.target.src='/assets/placeholder2.jpg'} />
             <div><h2 className="text-2xl">{ach.title}</h2><p className="text-[#ffa500]">{ach.tagline}</p><p className="mt-2">{ach.description}</p></div>
           </div>
         ))}

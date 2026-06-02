@@ -29,7 +29,7 @@ const Certificates = () => {
       <div className="space-y-8">
         {filtered.map(cert => (
           <div key={cert._id} className="flex flex-col md:flex-row gap-6 bg-[#262626] p-4 rounded-xl">
-            <img src={cert.imageUrl} className="md:w-1/3 rounded object-cover h-48" onError={(e)=>e.target.src='/assets/placeholder.jpg'} />
+            <img src={cert.imageUrl} className="md:w-1/3 rounded object-cover h-48" onError={(e)=>e.target.src='/assets/placeholder2.jpg'} />
             <div className="flex-1"><h2 className="text-2xl">{cert.title}</h2><p className="text-[#04aa6d]">{cert.issuer}</p><p className="mt-2">{cert.description}</p><button onClick={() => downloadPDF(cert.imageUrl, cert.title)} className="mt-3 bg-[#ff004f] px-4 py-1 rounded">Download PDF</button></div>
           </div>
         ))}

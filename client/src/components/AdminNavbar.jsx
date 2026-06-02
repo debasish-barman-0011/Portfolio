@@ -16,6 +16,8 @@ const AdminNavbar = () => {
         <Link to="/admin/blogs" className="hover:text-[#ff004f]">Blogs</Link>
         <Link to="/admin/community-posts" className="hover:text-[#ff004f]">Community</Link>
         <Link to="/admin/locker" className="hover:text-[#ff004f]">Locker</Link>
+        <Link to="/admin/contact-messages" className="hover:text-[#ff004f]">Contact Msgs</Link>
+        <Link to="/admin/resume-downloads" className="hover:text-[#ff004f]">Resume Logs</Link>
       </div>
       <button onClick={handleLogout} className="bg-red-600 px-4 py-1 rounded">Logout</button>
     </nav>

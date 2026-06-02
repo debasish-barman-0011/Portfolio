@@ -11,10 +11,10 @@ const Community = () => {
   const [form, setForm] = useState({ fullName: '', mobile: '', hometown: '', occupation: '', introduction: '' });
   useEffect(() => {
     api.get('/api/community/approved?limit=50').then(res => setMembers(res.data.members)).catch(console.error);
-    // popup logic (simplified)
+    
     setTimeout(() => {
       Swal.fire({ title: 'Join Community', text: 'Register to connect!', icon: 'info', confirmButtonText: 'Register' }).then(res => res.isConfirmed && setShowReg(true));
-    }, 5000);
+    }, 15000);
   }, []);
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -38,11 +38,11 @@ const Community = () => {
             <h2 className="text-2xl mb-4">Register as Member</h2>
             <form onSubmit={handleRegister} className="space-y-3">
               <input type="text" placeholder="Full Name" className="w-full p-2 bg-black rounded" value={form.fullName} onChange={e => setForm({...form, fullName: e.target.value})} required />
-              <input type="tel" placeholder="Mobile (10 digit)" pattern="[6-9][0-9]{9}" className="w-full p-2 bg-black rounded" value={form.mobile} onChange={e => setForm({...form, mobile: e.target.value})} required />
+              <input type="tel" placeholder="Mobile Number" pattern="[6-9][0-9]{9}" className="w-full p-2 bg-black rounded" value={form.mobile} onChange={e => setForm({...form, mobile: e.target.value})} required />
               <input type="text" placeholder="Hometown" className="w-full p-2 bg-black rounded" value={form.hometown} onChange={e => setForm({...form, hometown: e.target.value})} required />
               <input type="text" placeholder="Occupation" className="w-full p-2 bg-black rounded" value={form.occupation} onChange={e => setForm({...form, occupation: e.target.value})} required />
               <textarea placeholder="Brief introduction" rows="3" className="w-full p-2 bg-black rounded" value={form.introduction} onChange={e => setForm({...form, introduction: e.target.value})} required />
-              <div className="flex gap-3"><button type="submit" className="bg-[#04aa6d] px-4 py-2 rounded">Submit</button><button type="button" onClick={() => setShowReg(false)} className="bg-gray-600 px-4 py-2 rounded">Cancel</button></div>
+              <div className="flex gap-3"><button type="submit" className="bg-[#04aa6d] px-4 py-2 rounded">Register Now</button><button type="button" onClick={() => setShowReg(false)} className="bg-gray-600 px-4 py-2 rounded">Cancel</button></div>
             </form>
           </div>
         </div>
@@ -50,7 +50,7 @@ const Community = () => {
       <FilterBar filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} placeholder="Search by name, mobile" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filtered.map(m => (
-          <div key={m._id} className="bg-[#262626] p-4 rounded-xl"><h3 className="text-xl font-bold">{m.fullName}</h3><p>📍 {m.hometown}</p><p>📞 {m.mobile.slice(0,6)}****{m.mobile.slice(-2)}</p><p>💼 {m.occupation}</p><p className="mt-2">{m.introduction.substring(0,150)}...</p></div>
+          <div key={m._id} className="bg-[#262626] p-4 rounded-xl"><h3 className="text-xl font-bold">{m.fullName}</h3><p>📍 {m.hometown}</p><p>📞 {m.mobile.slice(0,6)}xxxx{m.mobile.slice(-2)}</p><p>💼 {m.occupation}</p><p className="mt-2">{m.introduction.substring(0,150)}...</p></div>
         ))}
       </div>
     </div>
