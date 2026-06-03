@@ -50,7 +50,7 @@ const Community = () => {
       <FilterBar filter={filter} setFilter={setFilter} search={search} setSearch={setSearch} placeholder="Search by name, mobile" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filtered.map(m => (
-          <div key={m._id} className="bg-[#262626] p-4 rounded-xl"><h3 className="text-xl font-bold">{m.fullName}</h3><p>📍 {m.hometown}</p><p>📞 {m.mobile.slice(0,6)}xxxx{m.mobile.slice(-2)}</p><p>💼 {m.occupation}</p><p className="mt-2">{m.introduction.substring(0,150)}...</p></div>
+          <div key={m._id} className="bg-[#262626] p-4 rounded-xl"><h3 className="text-xl font-bold">{m.fullName}</h3><p>📍 {m.hometown}</p><p>📞 {m.mobile.slice(0,4)}xxxx{m.mobile.slice(-2)}</p><p>💼 {m.occupation}</p><p className="mt-2">{m.introduction.substring(0,150)}...</p></div>
         ))}
       </div>
     </div>
