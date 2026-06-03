@@ -17,7 +17,7 @@ const Home = () => {
   const typed = new Typed('.autoType', {
     strings: [
       'an Associate @TCS.',
-      'a Graduate @BWU.',
+      'a Software Developer.',
       'Ex-DC @Schoolnet.'
     ],
     typeSpeed: 50,      
@@ -51,7 +51,9 @@ const Home = () => {
       </section>
       <div id="about" className="p-8 md:p-16 bg-[#080808]">
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="md:w-2/3"><h2 className="text-4xl font-bold">About Me</h2><p className="mt-4">BCA graduate from Brainware University, working as an Associate at TCS...</p></div>
+          <div className="md:w-2/3"><h2 className="text-4xl font-bold">About Me</h2><p className="mt-4">Hii 👋 I'm Debasish currently working as a Quality Assurance Test Engineer at Tata Consultancy Services under BFSI Bαncs Domain. In the past I have worked as an IT Consultant at Schoolnet India Limited, where I actively contributed to the West Bengal ICT School Projects. Also made a significant contribution to the transformation of digital education infrastructure at 6300+ government schools. I usually spend my spare time building impactful solutions that combine innovation, functionality, and user-centric design. I believe in " Eternal Learning is the only solution to succeed ". Open to reply to your queries at mail4barman@gmail.com 
+or 
+Visit : https://debasishbarman.in/contact </p></div>
           <div className="md:w-1/3"><img src="/assets/Userr.jpg" className="rounded-xl" onError={(e)=>e.target.src='/assets/about.jpg'} /></div>
         </div>
       </div>
