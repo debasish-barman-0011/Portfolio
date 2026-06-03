@@ -24,7 +24,7 @@ const DownloadResume = () => {
           <option value="">Select Purpose</option>
           <option>Explore</option><option> Recruitment</option><option>Collaboration</option><option>IT Consultation</option><option>Group Project</option><option>Others</option>
         </select>
-        <button type="submit" className="bg-[#ff004f] w-full py-3 rounded">Download Now</button>
+        <button type="submit" className="bg-[#04aa6d] w-full py-3 rounded">Download Now</button>
       </form>
     </div>
   );
